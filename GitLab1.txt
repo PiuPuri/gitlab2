@@ -1,0 +1,154 @@
+[root@localhost gitlab]# git status
+# On branch master
+#
+# Initial commit
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	listallfiles.sh
+nothing added to commit but untracked files present (use "git add" to track)
+[root@localhost gitlab]# git add 
+.git/            listallfiles.sh  
+[root@localhost gitlab]# git add listallfiles.sh 
+[root@localhost gitlab]# git status
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached <file>..." to unstage)
+#
+#	new file:   listallfiles.sh
+#
+[root@localhost gitlab]# clear
+
+[root@localhost gitlab]# git status
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached <file>..." to unstage)
+#
+#	new file:   listallfiles.sh
+#
+[root@localhost gitlab]# git commit -m "Committing script named listallfilesinroot.sh"
+[master (root-commit) c4df9ed] Committing script named listallfilesinroot.sh
+ Committer: root <root@localhost.localdomain>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 3 insertions(+)
+ create mode 100644 listallfiles.sh
+[root@localhost gitlab]# git config --global user.name "Apurva Giri"
+[root@localhost gitlab]# git config --global user.email apurva@gmail.com
+[root@localhost gitlab]# git log
+commit c4df9ed01611ecb3bc7c2ada1ad29968b49ecf6e
+Author: root <root@localhost.localdomain>
+Date:   Fri Jan 7 06:54:29 2022 -0800
+
+    Committing script named listallfilesinroot.sh
+[root@localhost gitlab]# nano index.html
+[root@localhost gitlab]# chmod -x index.html 
+[root@localhost gitlab]# git status
+# On branch master
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	index.html
+nothing added to commit but untracked files present (use "git add" to track)
+[root@localhost gitlab]# git add .
+[root@localhost gitlab]# git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	new file:   index.html
+#
+[root@localhost gitlab]# git commit -m "index.html Committing"
+[master 0c4b694] index.html Committing
+ 1 file changed, 1 insertion(+)
+ create mode 100644 index.html
+[root@localhost gitlab]# git log
+commit 0c4b694ca514e8cb57ca6f13404b0719323e49de
+Author: Apurva Giri <apurva@gmail.com>
+Date:   Fri Jan 7 07:00:53 2022 -0800
+
+    index.html Committing
+
+commit c4df9ed01611ecb3bc7c2ada1ad29968b49ecf6e
+Author: root <root@localhost.localdomain>
+Date:   Fri Jan 7 06:54:29 2022 -0800
+
+    Committing script named listallfilesinroot.sh
+[root@localhost gitlab]# git commit --amend -m "committing index.html"
+[master c716a3d] committing index.html
+ 1 file changed, 1 insertion(+)
+ create mode 100644 index.html
+[root@localhost gitlab]# git log
+commit c716a3d09726bc055145488e928be346d9608fe8
+Author: Apurva Giri <apurva@gmail.com>
+Date:   Fri Jan 7 07:00:53 2022 -0800
+
+    committing index.html
+
+commit c4df9ed01611ecb3bc7c2ada1ad29968b49ecf6e
+Author: root <root@localhost.localdomain>
+Date:   Fri Jan 7 06:54:29 2022 -0800
+
+    Committing script named listallfilesinroot.sh
+[root@localhost gitlab]# git branch
+* master
+[root@localhost gitlab]# git branch testbranch1
+[root@localhost gitlab]# git branch testbranch2
+[root@localhost gitlab]# git branch testbranch3
+[root@localhost gitlab]# git branch
+* master
+  testbranch1
+  testbranch2
+  testbranch3
+[root@localhost gitlab]# git checkout testbranch2
+Switched to branch 'testbranch2'
+[root@localhost gitlab]# git branch
+  master
+  testbranch1
+* testbranch2
+  testbranch3
+[root@localhost gitlab]# git checkout -b testbranch4
+Switched to a new branch 'testbranch4'
+[root@localhost gitlab]# git branch
+  master
+  testbranch1
+  testbranch2
+  testbranch3
+* testbranch4
+[root@localhost gitlab]# git branch -m testbranch1 test1
+[root@localhost gitlab]# git branch
+  master
+  test1
+  testbranch2
+  testbranch3
+* testbranch4
+[root@localhost gitlab]#  git branch -D testbranch2
+Deleted branch testbranch2 (was c716a3d).
+[root@localhost gitlab]# git branch
+  master
+  test1
+  testbranch3
+* testbranch4
+[root@localhost gitlab]# git checkout master
+Switched to branch 'master'
+[root@localhost gitlab]# git branch
+* master
+  test1
+  testbranch3
+  testbranch4
